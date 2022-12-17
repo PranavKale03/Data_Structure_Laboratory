@@ -1,0 +1,134 @@
+#include<iostream>
+using namespace std;
+struct piz
+{  int ono,ot;
+};
+class queue
+{  piz p[10];
+    int count,c,rear,front,f;
+    public:
+    queue()
+    { 
+        c=0;f=0;count=0;front=0;rear=-1;}
+        void insert();
+        void display();
+        void del();
+};
+void queue::insert()
+{     int i=0,n;
+       cout<<"\n1. Corn Pizza";
+       cout<<"\n2. Pizza\t";
+       cout<<"\n3. Cheese Pizza\t";
+       cout<<"\n---------------------------";
+       cout<<"\nHow many order you want to place : ";
+       cin>>n;
+      cout<<"\n---------------------------";
+      for(i=0;i<n;i++)
+       {    if(count>=10)
+             {    cout<<"\n---------------------------";
+                   cout<<"\nOverflow";
+                   break;
+             }
+             else
+             {
+             c++;
+                
+            if(rear==9)
+            { rear=0;     }
+            else
+             { rear++;    }
+            
+             cout<<"\nEnter your order : ";
+             cin>>p[rear].ot;
+             p[rear].ono=c;      
+             count++; 
+             }
+       }  
+}
+void queue::display()
+{   int i=0,n,f=front; 
+      cout<<"\n---------------------------";
+      cout<<"\nHow many order you want to display : ";
+      cin>>n;
+      cout<<"\n---------------------------";
+      for(i=0;i<n;i++)
+      {   if(i>=count)
+           {    cout<<"\nAll data dispalyed : ";    
+                break;  
+           }
+           else
+           {
+           cout<<"\n---------------------------";
+           cout<<"\nReceive your order please, No. : "<<p[f].ono;
+           cout<<"\nWhich is : ";
+           if(p[f].ot==1)
+           {     cout<<"Corn Pizza";   }
+            if(p[f].ot==2)
+           {     cout<<"Pizza";   }
+             if(p[f].ot==3)
+           {     cout<<"Cheese Pizza";   }
+           cout<<"\n---------------------------";
+           f++;  
+            if(f==10)
+            {   f=0;   }      
+            }
+        }
+}
+void queue::del()
+{   int i=0,n;
+       cout<<"\n---------------------------"; 
+      cout<<"\nHow many order you want to delete : ";
+      cin>>n;
+      cout<<"\n---------------------------";
+      for(i=0;i<n;i++)
+      {   if(count==0)
+           {    cout<<"\nUnderflow";    
+                break;  
+           }
+           else
+           {
+           cout<<"\n---------------------------";
+           cout<<"\nDeleted order no.: "<<p[front].ono;
+           cout<<"\nWhich is : ";
+           if(p[front].ot==1)
+           {     cout<<"Corn Pizza";   }
+            if(p[front].ot==2)
+           {     cout<<"Pizza";   }
+             if(p[front].ot==3)
+           {     cout<<"Cheese Pizza";   }
+           cout<<"\n---------------------------";
+          p[front].ono=0;    
+          p[front].ot=0;
+          front++;  
+          
+            if(front==10)
+            {   front=0;   }       
+            count--;
+            }
+        }
+}
+int main()
+{  queue q;  int y=1,x;
+   while(y==1)
+   {     
+          cout<<"\n1.Place order    ";
+          cout<<"\n2.Display order";
+          cout<<"\n3.Delete order";
+          cout<<"\n4.Exit";
+          cout<<"\nEnter the choice : ";
+          cin>>x;
+          switch(x)
+          {  case 1: q.insert();
+                              break;
+               case 2: q.display();
+                              break;
+                case 3:  q.del();
+                          break;
+               case 4:   y=0;
+                        break;
+                default:   cout<<"\nUnknown Entry !!";              
+            }
+     }                                          
+
+    return 0;
+}
