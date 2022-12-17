@@ -1,0 +1,53 @@
+# Python program for Linear Search.
+
+num = int(input("Enter number of students : "))
+li = [ ]
+for i in range(0, num):
+    stu = int(input("Enter roll number of students : "))
+    li.append(stu)
+
+print("------------------------------------------------------------")
+
+att = int(input("Enter roll number of student to search in list : "))
+
+print("------------------------------------------------------------")
+
+def linear_search():
+    for i in range (num):
+        if li[i] == att:
+            print(att, "have attended training program.")
+            break
+        else:
+            print(att, "haven't attended training program.")
+            break
+
+linear_search()
+print("------------------------------------------------------------")
+
+
+
+
+
+# Python program for Sentinel Search.
+
+def Sentinelsearch():  
+    n = len(arr)
+    last = arr[n-1]
+    arr[n-1] = key
+    i = 0
+    while (arr[i]!=key):
+        i+=1
+    arr[n-1] = last
+    if ((i<n-1) or (arr[n-1]==key)):
+        print(key, "have attendend training program.")
+    else:
+        print(key, "haven't attendend training program.")
+
+
+num = int(input("Number of students : "))
+arr = []
+for i in range (num):
+    a = int(input())
+    arr.append(a)
+key = int(input("Enter roll number to search in list : "))
+Sentinelsearch()
