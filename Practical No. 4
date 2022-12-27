@@ -1,28 +1,26 @@
 # Python program for Linear Search.
 
-num = int(input("Enter number of students : "))
-li = [ ]
-for i in range(0, num):
-    stu = int(input("Enter roll number of students : "))
-    li.append(stu)
+def linear_Search(list, n, key):  
+    for i in range(0, n):  
+        if (list[i] == key):  
+            return i  
+    return -1  
+  
+  
+list = [ ] 
+num = int(input("Enter number of sudent : ")) 
+for i in range (num):
+    stu = int(input("Enter roll number of student : "))
+    list.append(stu)
 
-print("------------------------------------------------------------")
-
-att = int(input("Enter roll number of student to search in list : "))
-
-print("------------------------------------------------------------")
-
-def linear_search():
-    for i in range (num):
-        if li[i] == att:
-            print(att, "have attended training program.")
-            break
-        else:
-            print(att, "haven't attended training program.")
-            break
-
-linear_search()
-print("------------------------------------------------------------")
+key = int(input("Enter roll number to search in list : "))  
+  
+n = len(list)  
+res = linear_Search(list, n, key)  
+if(res == -1):  
+    print("Not attended training program.")  
+else:  
+    print("Attended the training program.") 
 
 
 
