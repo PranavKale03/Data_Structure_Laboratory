@@ -4,4 +4,4 @@ Artificial Inteligence and Data Science Branch
 
 ---
 
-# Here, you get all DS Laboratory programs.
+# Here, you get all Data Structure Laboratory programs.
